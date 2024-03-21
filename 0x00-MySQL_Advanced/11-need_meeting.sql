@@ -3,7 +3,7 @@
 -- or more than 1 month.
 
 DROP VIEW IF EXISTS need_meeting;
-CREATE VIEW need_meeting AS mine
+CREATE VIEW need_meeting AS
        SELECT name
        FROM students
        WHERE students.score < 80 AND
