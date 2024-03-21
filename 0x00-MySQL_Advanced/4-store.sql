@@ -1,6 +1,7 @@
 -- a script that creates a trigger to decrease item quantity
 -- after a new order is added
 
+CREATE TRIGGER update_orders
 AFTER INSERT ON orders
 FOR EACH ROW
 BEGIN
