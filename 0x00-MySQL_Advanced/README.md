@@ -1,0 +1,1 @@
+This directory delves into advanced SQL concepts that can enhance your database interactions for assignments. Explore these techniques to streamline data manipulation, improve efficiency, and add robustness to your solutions.
