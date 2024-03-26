@@ -1,2 +1,2 @@
 // a script that deletes all documents with a criteria in MondoDB.
-db.school.deleteMany( {name: "Holberton school"})
+db.school.deleteMany({name: "Holberton school"});
