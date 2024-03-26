@@ -4,25 +4,25 @@
 from pymongo import MongoClient
 
 
-def logs_count(logs):
+def logs_count(mongo_collection):
     """
     Function that returns the number of logs in the collection.
     """
-    return logs.count_documents({})
+    return mongo_collection.count_documents({})
 
 
-def method_count(nginxx, method):
+def method_count(mongo_collection, method):
     """
     Function that returns the count of logs with a specific HTTP method.
     """
-    return nginxx.count_documents({"method": method})
+    return mongo_collection.count_documents({"method": method})
 
 
-def path_count(c_path, method, path):
+def path_count(mongo_collection, method, path):
     """
     Function that returns the number of logs with a specific HTTP method and path.
     """
-    return c_path.count_documents({"method": method, "path": path})
+    return mongo_collection.count_documents({"method": method, "path": path})
 
 
 if __name__ == "__main__":
