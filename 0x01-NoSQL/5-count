@@ -1,0 +1,2 @@
+// script to display number of documents in a database
+db.school.count()
