@@ -1,0 +1,2 @@
+// script to list documents in a database
+db.school.find();
