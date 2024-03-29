@@ -8,7 +8,7 @@ import functools
 
 def replay(cache_method: Callable) -> None:
     """
-    Displays the history of calls of a particular function
+    function that displays the history of calls of a particular function
     """
     input_key = cache_method.__qualname__ + ':inputs'
     output_key = cache_method.__qualname__ + ':outputs'
