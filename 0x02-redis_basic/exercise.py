@@ -6,6 +6,7 @@ from typing import Union, Optional, Callable
 import functools
 
 
+<<<<<<< HEAD
     def count_calls(method: Callable) -> Callable:
   """function to use a decorator to count method
   calls"""
@@ -16,6 +17,19 @@ import functools
     self._redis.incr(key)
     return method(self, *args, **kwargs)
   return wrapper
+=======
+def count_calls(method: Callable) -> Callable:
+    """Decorator function to count method calls"""
+
+    @functools.wraps(method)
+    def wrapper(self, *args, **kwargs):
+        """Function that wraps the original method"""
+        key = method.__qualname__
+        self._redis.incr(key)
+        return method(self, *args, **kwargs)
+
+    return wrapper
+>>>>>>> 10277902669b7e760f4e7b5a1e15deb95c88a3f5
 
 class Cache:
     """default cache class"""
