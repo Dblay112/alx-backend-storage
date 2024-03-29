@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""interpreter used"""
+"""interpreter used."""
 import redis
 import uuid
 from typing import Union, Optional, Callable
