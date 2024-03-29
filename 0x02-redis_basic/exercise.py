@@ -19,8 +19,8 @@ class Cache:
         self._redis.set(r_key, data)
         return r_key
 
-    def get(self, key: str, fn: Callable = None) ->
-    Union[str, bytes, int, None]:
+    def get(self, key: str, fn:
+            Optional[Callable] = None) -> Union[str, bytes, int, float]:
         """method that take a key string argument
         and an optional Callable argument named fn"""
         new_data = self._redis.get(key)
@@ -30,10 +30,10 @@ class Cache:
             return fn(new_data)
         return new_data
 
-    def get_str(self, key: str) -> Union[str, bytes, None]:
+    def get_str(self, key: str) -> str:
         """function that retrieves string data from cache"""
         return self._redis.get(key, fn=lambda d: d.decode("utf-8"))
 
-    def get_int(self, key: str) -> Union[int, None]:
+    def get_int(self, key: str) -> int:
         """function that retrieve integer data from cache"""
         return self._redis.get(key, fn=int)
