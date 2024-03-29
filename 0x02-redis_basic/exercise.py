@@ -9,7 +9,7 @@ import functools
 def count_calls(method: Callable) -> Callable:
     """function to use a decorator to count method
     calls"""
-    @wraps(method)
+    @functools.wraps
     def wrapper(self, *args, **kwargs):
         """function that wraps the original method"""
         key = method.__qualname__
