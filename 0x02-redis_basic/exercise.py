@@ -6,6 +6,21 @@ from typing import Union, Optional, Callable
 import functools
 
 
+def call_history(method: Callable) -> Callable:
+    """function to store the history of inpurt and outputs
+    for a particular function"""
+    @functools.wraps(method)
+    def wrapper(self, *args, **kwargs):
+        """method that wraps the original method"""
+        input_arguments = f"{method.__qualname__}:inputs"
+        output_arguments = f"{method.__qualname__}:outputs"
+        self._redis.rpush(input_arguments, str(args))
+        output = method(self, *args, **kwargs)
+        self._redis.rpush(output_arguments, output)
+        return output
+    return wrapper
+
+
 def count_calls(method: Callable) -> Callable:
     """function to use a decorator to count method
     calls"""
